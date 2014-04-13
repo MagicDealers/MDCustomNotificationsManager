@@ -1,0 +1,7 @@
+pod "MDCustomNotificationsManager", :path => "../MDCustomNotificationsManager.podspec"
+
+target "Demo" do
+end
+
+target "DemoTests" do
+end
