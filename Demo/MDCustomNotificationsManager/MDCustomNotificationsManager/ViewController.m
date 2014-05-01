@@ -24,14 +24,16 @@
 
 - (IBAction)displaySuccess:(id)sender {
     
-    [MDCustomNotificationsManager displayNotificationWithMessage:@"You can add Completions Block" ofType:MDCustomNotificationTypeSuccess withActionCompletionBlock:^{
+    [MDCustomNotificationsManager displayNotificationWithMessage:@"You can add Completion Blocks" ofType:MDCustomNotificationTypeSuccess withActionCompletionBlock:^{
         [[[UIAlertView alloc] initWithTitle:@"Notification disappeared" message:@"The notification has disappeared and, thus, the completion block has been executed" delegate:nil cancelButtonTitle:@"Cool" otherButtonTitles:nil, nil] show];
     }];
 }
 
 
 - (IBAction)displayError:(id)sender {
-    [MDCustomNotificationsManager displayNotificationWithMessage:@"A button can be added, too, so the user can do something" ofType:MDCustomNotificationTypeError withButtonWithTitle:@"Forgot password?" buttonActionBlock:nil];
+    [MDCustomNotificationsManager displayNotificationWithMessage:@"A button can be added, too, so the user can do something" ofType:MDCustomNotificationTypeError withButtonWithTitle:@"Forgot password?" buttonActionBlock:^{
+        [[[UIAlertView alloc] initWithTitle:@"Button Pressed" message:@"Notification's button has been pressed. The block is executed." delegate:nil cancelButtonTitle:@"Super Cool" otherButtonTitles:nil, nil] show];
+    }];
 }
 
 
