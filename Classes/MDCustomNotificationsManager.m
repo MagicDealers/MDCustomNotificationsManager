@@ -209,16 +209,16 @@ static float kNotificationBackgroundAlpha = 0.9;
     UIColor *colour;
     
     if (notificationType == MDCustomNotificationTypeError) {
-        colour = [UIColor colorWithRed:0.867 green:0.039 blue:0.090 alpha:kNotificationBackgroundAlpha];
+        colour = [UIColor colorWithRed:0.826 green:0.154 blue:0.188 alpha:kNotificationBackgroundAlpha];
         
     } else if (notificationType == MDCustomNotificationTypeSuccess) {
-        colour = [UIColor colorWithRed:0.122 green:0.800 blue:0.137 alpha:kNotificationBackgroundAlpha];
+        colour = [UIColor colorWithRed:0.207 green:0.785 blue:0.289 alpha:kNotificationBackgroundAlpha];
         
     } else if (notificationType == MDCustomNotificationTypeInfo) {
         colour = [UIColor colorWithWhite:0 alpha:kNotificationBackgroundAlpha];
         
     } else if (notificationType == MDCustomNotificationTypeWarning) {
-        colour = [UIColor colorWithRed:0.918 green:0.486 blue:0.137 alpha:kNotificationBackgroundAlpha];
+        colour = [UIColor colorWithRed:1.000 green:0.404 blue:0.141 alpha:kNotificationBackgroundAlpha];
         
     } else {
         
