@@ -204,65 +204,31 @@ static float kNotificationBackgroundAlpha = 0.9;
 
 - (UIColor *)appropriateColourForNotificationMessage:(MDNotificationMessage *)notificationMessage {
     
-    MDCustomNotificationType notificationType = notificationMessage.notificationType;
+    NSMutableDictionary *coloursDictionary = [@{@(MDCustomNotificationTypeError): [UIColor colorWithRed:0.826 green:0.154 blue:0.188 alpha:kNotificationBackgroundAlpha],
+                                        @(MDCustomNotificationTypeSuccess): [UIColor colorWithRed:0.207 green:0.785 blue:0.289 alpha:kNotificationBackgroundAlpha],
+                                        @(MDCustomNotificationTypeInfo): [UIColor colorWithWhite:0 alpha:kNotificationBackgroundAlpha],
+                                        @(MDCustomNotificationTypeWarning): [UIColor colorWithRed:1.000 green:0.404 blue:0.141 alpha:kNotificationBackgroundAlpha]} mutableCopy];
     
-    UIColor *colour;
-    
-    if (notificationType == MDCustomNotificationTypeError) {
-        colour = [UIColor colorWithRed:0.826 green:0.154 blue:0.188 alpha:kNotificationBackgroundAlpha];
-        
-    } else if (notificationType == MDCustomNotificationTypeSuccess) {
-        colour = [UIColor colorWithRed:0.207 green:0.785 blue:0.289 alpha:kNotificationBackgroundAlpha];
-        
-    } else if (notificationType == MDCustomNotificationTypeInfo) {
-        colour = [UIColor colorWithWhite:0 alpha:kNotificationBackgroundAlpha];
-        
-    } else if (notificationType == MDCustomNotificationTypeWarning) {
-        colour = [UIColor colorWithRed:1.000 green:0.404 blue:0.141 alpha:kNotificationBackgroundAlpha];
-        
-    } else {
-        
-        if (notificationMessage.backgroundColour) {
-            colour = notificationMessage.backgroundColour;
-            
-        } else {
-            colour = [UIColor colorWithWhite:0 alpha:kNotificationBackgroundAlpha];
-        }
+    if (notificationMessage.backgroundColour) {
+        [coloursDictionary setObject:notificationMessage.backgroundColour forKey:@(MDCustomNotificationTypeCustom)];
     }
     
-    return colour;
+    return [coloursDictionary objectForKey:@(notificationMessage.notificationType)];
 }
 
 
 - (UIImage *)appropriateImageForNotificationMessage:(MDNotificationMessage *)notificationMessage {
     
-    MDCustomNotificationType notificationType = notificationMessage.notificationType;
+    NSMutableDictionary *iconsDictionary = [@{@(MDCustomNotificationTypeError): [UIImage imageNamed:@"icon-error.png"],
+                                      @(MDCustomNotificationTypeSuccess): [UIImage imageNamed:@"icon-success.png"],
+                                      @(MDCustomNotificationTypeInfo): [UIImage imageNamed:@"icon-info.png"],
+                                      @(MDCustomNotificationTypeWarning): [UIImage imageNamed:@"icon-warning.png"]} mutableCopy];
     
-    UIImage *image;
-    
-    if (notificationType == MDCustomNotificationTypeError) {
-        image = [UIImage imageNamed:@"icon-error.png"];
-        
-    } else if (notificationType == MDCustomNotificationTypeSuccess) {
-        image = [UIImage imageNamed:@"icon-success.png"];
-        
-    } else if (notificationType == MDCustomNotificationTypeInfo) {
-        image = [UIImage imageNamed:@"icon-info.png"];
-        
-    } else if (notificationType == MDCustomNotificationTypeWarning) {
-        image = [UIImage imageNamed:@"icon-warning.png"];
-        
-    } else {
-        
-        if (notificationMessage.iconImage) {
-            image = notificationMessage.iconImage;
-            
-        } else {
-            image = [UIImage imageNamed:@"icon-info.png"];
-        }
+    if (notificationMessage.iconImage) {
+        [iconsDictionary setObject:notificationMessage.iconImage forKey:MDCustomNotificationTypeCustom];
     }
-    
-    return image;
+
+    return [iconsDictionary objectForKey:@(notificationMessage.notificationType)];
 }
 
 
