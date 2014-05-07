@@ -49,7 +49,7 @@ static float kNotificationBackgroundAlpha = 0.9;
     
     [[UIApplication sharedApplication].keyWindow addSubview:self.notificationView];
     self.notificationView.window.windowLevel = UIWindowLevelAlert;
-
+    
     
     CGRect notificationFrame = self.notificationView.frame;
     notificationFrame.origin.y = 0;
@@ -100,6 +100,7 @@ static float kNotificationBackgroundAlpha = 0.9;
 #pragma mark Public Methods.
 
 + (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType {
+    
     [self displayNotificationWithMessage:message ofType:notificationType withActionCompletionBlock:nil];
 }
 
@@ -151,7 +152,7 @@ static float kNotificationBackgroundAlpha = 0.9;
         self.displayingSeconds = 3;
     }
     
-    return self;    
+    return self;
 }
 
 
@@ -205,9 +206,10 @@ static float kNotificationBackgroundAlpha = 0.9;
 - (UIColor *)appropriateColourForNotificationMessage:(MDNotificationMessage *)notificationMessage {
     
     NSMutableDictionary *coloursDictionary = [@{@(MDCustomNotificationTypeError): [UIColor colorWithRed:0.826 green:0.154 blue:0.188 alpha:kNotificationBackgroundAlpha],
-                                        @(MDCustomNotificationTypeSuccess): [UIColor colorWithRed:0.207 green:0.785 blue:0.289 alpha:kNotificationBackgroundAlpha],
-                                        @(MDCustomNotificationTypeInfo): [UIColor colorWithWhite:0 alpha:kNotificationBackgroundAlpha],
-                                        @(MDCustomNotificationTypeWarning): [UIColor colorWithRed:1.000 green:0.404 blue:0.141 alpha:kNotificationBackgroundAlpha]} mutableCopy];
+                                                @(MDCustomNotificationTypeSuccess): [UIColor colorWithRed:0.207 green:0.785 blue:0.289 alpha:kNotificationBackgroundAlpha],
+                                                @(MDCustomNotificationTypeInfo): [UIColor colorWithWhite:0 alpha:kNotificationBackgroundAlpha],
+                                                @(MDCustomNotificationTypeWarning): [UIColor colorWithRed:1.000 green:0.404 blue:0.141 alpha:kNotificationBackgroundAlpha],
+                                                @(MDCustomNotificationTypeCustom): [UIColor colorWithWhite:0 alpha:kNotificationBackgroundAlpha]} mutableCopy];
     
     if (notificationMessage.backgroundColour) {
         [coloursDictionary setObject:notificationMessage.backgroundColour forKey:@(MDCustomNotificationTypeCustom)];
@@ -220,14 +222,15 @@ static float kNotificationBackgroundAlpha = 0.9;
 - (UIImage *)appropriateImageForNotificationMessage:(MDNotificationMessage *)notificationMessage {
     
     NSMutableDictionary *iconsDictionary = [@{@(MDCustomNotificationTypeError): [UIImage imageNamed:@"icon-error.png"],
-                                      @(MDCustomNotificationTypeSuccess): [UIImage imageNamed:@"icon-success.png"],
-                                      @(MDCustomNotificationTypeInfo): [UIImage imageNamed:@"icon-info.png"],
-                                      @(MDCustomNotificationTypeWarning): [UIImage imageNamed:@"icon-warning.png"]} mutableCopy];
+                                              @(MDCustomNotificationTypeSuccess): [UIImage imageNamed:@"icon-success.png"],
+                                              @(MDCustomNotificationTypeInfo): [UIImage imageNamed:@"icon-info.png"],
+                                              @(MDCustomNotificationTypeWarning): [UIImage imageNamed:@"icon-warning.png"],
+                                              @(MDCustomNotificationTypeCustom): [UIImage imageNamed:@"icon-info.png"]} mutableCopy];
     
     if (notificationMessage.iconImage) {
         [iconsDictionary setObject:notificationMessage.iconImage forKey:MDCustomNotificationTypeCustom];
     }
-
+    
     return [iconsDictionary objectForKey:@(notificationMessage.notificationType)];
 }
 
@@ -295,7 +298,7 @@ static float kNotificationBackgroundAlpha = 0.9;
         [self addSubview:self.messageLabel];
         
         
-                
+        
         if (notificationMessage.buttonTitle) {
             
             self.buttonActionBlock = notificationMessage.buttonActionBlock;
@@ -315,7 +318,7 @@ static float kNotificationBackgroundAlpha = 0.9;
             self.actionButton.tintColor = [UIColor whiteColor];
             [self.actionButton addTarget:self action:@selector(handleButtonAction:) forControlEvents:UIControlEventTouchDown];
             
-            [self addSubview:self.actionButton];            
+            [self addSubview:self.actionButton];
         }
     }
     
