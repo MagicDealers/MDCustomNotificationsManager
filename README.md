@@ -3,7 +3,7 @@
 
 **Readme** with a now typical gif animation showing what and how the library does what it does, and some fancy dissertation of the appropriated ways of using it *coming soon*. Stay tunned. 
 
-[@thecafremo](https://twitter.com/thecafremo) (Through which you can contact me, but, you now, I don't tweet much. At all, to be honest).
+[@thecafremo](https://twitter.com/thecafremo) (Through which you can contact me, but, you know, I don't tweet much. At all, to be honest).
 
 <!-- **MDCustomNotificationsManager** displays it's a simple a configurable way of displaying messages in a notification-way.
 
