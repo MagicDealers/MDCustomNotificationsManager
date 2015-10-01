@@ -40,7 +40,6 @@
 
 
 - (IBAction)displayInfo:(id)sender {
-    
     [MDCustomNotificationsManager displayNotificationWithMessage:@"This notification is just a notification" ofType:MDCustomNotificationTypeInfo];
 }
 

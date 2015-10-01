@@ -123,13 +123,16 @@ static CGFloat const kNotificationBackgroundAlpha = 0.9;
     }
     
     self.notificationView = [[MDNotificationView alloc] initWithNotificationMessage:notificationMessage];
-    
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handlePressAndHoldGesture:)];
-    longPress.minimumPressDuration = 0.01;
-    longPress.cancelsTouchesInView = NO;
-    
-    [self.notificationView addGestureRecognizer:longPress];
-    
+
+    if (self.tapToDismissEnabled) {
+        
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handlePressAndHoldGesture:)];
+        longPress.minimumPressDuration = 0.01;
+        longPress.cancelsTouchesInView = NO;
+        
+        [self.notificationView addGestureRecognizer:longPress];
+    }
+        
     [self presentNotification];
 }
 
