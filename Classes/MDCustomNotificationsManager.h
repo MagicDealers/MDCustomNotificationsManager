@@ -38,6 +38,7 @@ typedef void(^ActionCompletionBlock)(void);
 
 @property (nonatomic, assign) BOOL tapToDismissEnabled;
 
+
 + (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType;
 + (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withActionCompletionBlock:(ActionCompletionBlock)actionCompletionBlock;
 + (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withButtonWithTitle:(NSString *)buttonTitle buttonActionBlock:(ButtonActionBlock)buttonActionBlock;
@@ -49,29 +50,3 @@ typedef void(^ActionCompletionBlock)(void);
 
 @end
 
-
-
-@interface MDNotificationMessage : NSObject
-
-@property (nonatomic, assign) MDCustomNotificationType notificationType;
-
-@property (nonatomic, strong) UIImage *iconImage;
-@property (nonatomic, strong) NSString *message;
-@property (nonatomic, strong) NSString *buttonTitle;
-@property (nonatomic, strong) UIImage *buttonImage;
-@property (nonatomic, strong) UIColor *notificationViewBackgroundColour;
-
-@property (nonatomic, assign) CGFloat displayTime;
-
-@property (nonatomic, copy) ButtonActionBlock buttonActionBlock;
-@property (nonatomic, copy) ActionCompletionBlock actionCompletionBlock;
-
-@end
-
-
-
-@interface MDNotificationView : UIView
-
-- (id)initWithNotificationMessage:(MDNotificationMessage *)notificationMessage;
-
-@end

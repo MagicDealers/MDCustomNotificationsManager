@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MDCustomNotificationsManager.h"
+#import "MDNotificationMessage.h"
 
 @interface ViewController ()
 
@@ -52,8 +53,8 @@
     message.iconImage = [UIImage imageNamed:@"custom"];
     message.buttonImage = [UIImage imageNamed:@"close-cross"];
     message.notificationViewBackgroundColour = [UIColor colorWithRed:0.45 green:0.22 blue:0.98 alpha:1];
-    message.actionCompletionBlock = ^{
-        [[[UIAlertView alloc] initWithTitle:@"Notification disappeared" message:@"The notification has disappeared and, thus, the completion block has been executed" delegate:nil cancelButtonTitle:@"Cool" otherButtonTitles:nil, nil] show];
+    message.buttonActionBlock = ^{
+        [[[UIAlertView alloc] initWithTitle:@"Button Pressed" message:@"Notification's button has been pressed. The block is executed." delegate:nil cancelButtonTitle:@"Cool" otherButtonTitles:nil, nil] show];
     };
     
     [MDCustomNotificationsManager displayNotificationWithMDNotificationMessage:message];

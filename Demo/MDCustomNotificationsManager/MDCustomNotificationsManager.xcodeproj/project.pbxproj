@@ -14,6 +14,8 @@
 		413129A71BBD557C000A277A /* close-cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 413129A41BBD557C000A277A /* close-cross.png */; };
 		413129A81BBD557C000A277A /* close-cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 413129A51BBD557C000A277A /* close-cross@2x.png */; };
 		413129A91BBD557C000A277A /* close-cross@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 413129A61BBD557C000A277A /* close-cross@3x.png */; };
+		413129AC1BBD792C000A277A /* MDNotificationMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 413129AB1BBD792C000A277A /* MDNotificationMessage.m */; };
+		413129AF1BBD7968000A277A /* MDNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 413129AE1BBD7968000A277A /* MDNotificationView.m */; };
 		9B36BCE918ACD32A00FF04E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B36BCE818ACD32A00FF04E8 /* Foundation.framework */; };
 		9B36BCEB18ACD32A00FF04E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B36BCEA18ACD32A00FF04E8 /* CoreGraphics.framework */; };
 		9B36BCED18ACD32A00FF04E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B36BCEC18ACD32A00FF04E8 /* UIKit.framework */; };
@@ -53,6 +55,10 @@
 		413129A41BBD557C000A277A /* close-cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-cross.png"; sourceTree = "<group>"; };
 		413129A51BBD557C000A277A /* close-cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-cross@2x.png"; sourceTree = "<group>"; };
 		413129A61BBD557C000A277A /* close-cross@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-cross@3x.png"; sourceTree = "<group>"; };
+		413129AA1BBD792C000A277A /* MDNotificationMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNotificationMessage.h; sourceTree = "<group>"; };
+		413129AB1BBD792C000A277A /* MDNotificationMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNotificationMessage.m; sourceTree = "<group>"; };
+		413129AD1BBD7968000A277A /* MDNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNotificationView.h; sourceTree = "<group>"; };
+		413129AE1BBD7968000A277A /* MDNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNotificationView.m; sourceTree = "<group>"; };
 		9B36BCE518ACD32A00FF04E8 /* MDCustomNotificationsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDCustomNotificationsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B36BCE818ACD32A00FF04E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9B36BCEA18ACD32A00FF04E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -195,6 +201,10 @@
 				9B36BD1E18ACD38E00FF04E8 /* icons */,
 				9B36BD2218ACD38E00FF04E8 /* MDCustomNotificationsManager.h */,
 				9B36BD2318ACD38E00FF04E8 /* MDCustomNotificationsManager.m */,
+				413129AA1BBD792C000A277A /* MDNotificationMessage.h */,
+				413129AB1BBD792C000A277A /* MDNotificationMessage.m */,
+				413129AD1BBD7968000A277A /* MDNotificationView.h */,
+				413129AE1BBD7968000A277A /* MDNotificationView.m */,
 			);
 			name = Classes;
 			path = ../../../Classes;
@@ -325,7 +335,9 @@
 			files = (
 				9B36BCFF18ACD32A00FF04E8 /* ViewController.m in Sources */,
 				9B36BCF918ACD32A00FF04E8 /* AppDelegate.m in Sources */,
+				413129AC1BBD792C000A277A /* MDNotificationMessage.m in Sources */,
 				9B36BD2718ACD38E00FF04E8 /* MDCustomNotificationsManager.m in Sources */,
+				413129AF1BBD7968000A277A /* MDNotificationView.m in Sources */,
 				9B36BCF518ACD32A00FF04E8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
