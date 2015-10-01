@@ -249,6 +249,30 @@ static CGFloat const kNotificationBackgroundAlpha = 0.9;
 }
 
 
++ (void)configureNotificationOfType:(MDCustomNotificationType)customNotificationType withParameters:(NSDictionary *)parametersDictionary {
+    
+    UIColor *backgroundColor = parametersDictionary[MDNotificationViewBackgroundColourKey];
+    
+    if (backgroundColor) {
+        
+        NSMutableDictionary *backgroundColoursDictionary = [[MDCustomNotificationsManager sharedInstance].backgroundColoursDictionary mutableCopy];
+        backgroundColoursDictionary[@(customNotificationType)] = backgroundColor;
+        
+        [MDCustomNotificationsManager sharedInstance].backgroundColoursDictionary = backgroundColoursDictionary;
+    }
+    
+    UIImage *iconImage = parametersDictionary[MDNotificationViewIconImageKey];
+    
+    if (iconImage) {
+        
+        NSMutableDictionary *iconImagesDictionary = [[MDCustomNotificationsManager sharedInstance].iconImagesDictionary mutableCopy];
+        iconImagesDictionary[@(customNotificationType)] = iconImage;
+        
+        [MDCustomNotificationsManager sharedInstance].iconImagesDictionary = iconImagesDictionary;
+    }
+}
+
+
 @end
 
 

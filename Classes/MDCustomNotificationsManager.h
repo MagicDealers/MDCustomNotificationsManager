@@ -16,6 +16,9 @@ typedef enum {
     MDCustomNotificationTypeWarning
 } MDCustomNotificationType;
 
+static NSString * const MDNotificationViewBackgroundColourKey = @"backgroundColourKey";
+static NSString * const MDNotificationViewIconImageKey = @"iconImageKey";
+
 typedef void(^ButtonActionBlock)(void);
 typedef void(^ActionCompletionBlock)(void);
 
@@ -33,7 +36,6 @@ typedef void(^ActionCompletionBlock)(void);
 
 @property (nonatomic, strong) UIFont *font;
 @property (nonatomic, strong) UIColor *textColour;
-
 @property (nonatomic, strong) UIFont *buttonTitleFont;
 
 @property (nonatomic, assign) BOOL tapToDismissEnabled;
@@ -43,8 +45,10 @@ typedef void(^ActionCompletionBlock)(void);
 + (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withActionCompletionBlock:(ActionCompletionBlock)actionCompletionBlock;
 + (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withButtonWithTitle:(NSString *)buttonTitle buttonActionBlock:(ButtonActionBlock)buttonActionBlock;
 + (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withButtonWithTitle:(NSString *)buttonTitle buttonActionBlock:(ButtonActionBlock)buttonActionBlock actionCompletionBlock:(ActionCompletionBlock)actionCompletionBlock;
+
 + (void)displayNotificationWithMDNotificationMessage:(MDNotificationMessage *)notificationMessage;
 
++ (void)configureNotificationOfType:(MDCustomNotificationType)customNotificationType withParameters:(NSDictionary *)parametersDictionary;
 
 + (MDCustomNotificationsManager *)sharedInstance;
 
