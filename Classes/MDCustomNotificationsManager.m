@@ -217,22 +217,10 @@ static CGFloat const kNotificationBackgroundAlpha = 0.9;
 
 
 + (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withActionCompletionBlock:(ActionCompletionBlock)actionCompletionBlock {
-    [self displayNotificationWithMessage:message ofType:notificationType withButtonWithTitle:nil buttonActionBlock:nil actionCompletionBlock:actionCompletionBlock];
-}
-
-
-+ (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withButtonWithTitle:(NSString *)buttonTitle buttonActionBlock:(ButtonActionBlock)buttonActionBlock {
-    [self displayNotificationWithMessage:message ofType:notificationType withButtonWithTitle:buttonTitle buttonActionBlock:buttonActionBlock actionCompletionBlock:nil];
-}
-
-
-+ (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withButtonWithTitle:(NSString *)buttonTitle buttonActionBlock:(ButtonActionBlock)buttonActionBlock actionCompletionBlock:(ActionCompletionBlock)actionCompletionBlock {
     
     MDNotificationMessage *notificationMessage = [MDNotificationMessage new];
     notificationMessage.message = message;
     notificationMessage.notificationType = notificationType;
-    notificationMessage.buttonTitle = buttonTitle;
-    notificationMessage.buttonActionBlock = buttonActionBlock;
     notificationMessage.actionCompletionBlock = actionCompletionBlock;
     
     [self displayNotificationWithMDNotificationMessage:notificationMessage];
@@ -250,6 +238,11 @@ static CGFloat const kNotificationBackgroundAlpha = 0.9;
 
 
 + (void)configureNotificationOfType:(MDCustomNotificationType)customNotificationType withParameters:(NSDictionary *)parametersDictionary {
+    
+    if (!parametersDictionary || customNotificationType == MDCustomNotificationTypeCustom) {
+        return;
+    }
+    
     
     UIColor *backgroundColor = parametersDictionary[MDNotificationViewBackgroundColourKey];
     

@@ -33,9 +33,16 @@
 
 - (IBAction)displayError:(id)sender {
     
-    [MDCustomNotificationsManager displayNotificationWithMessage:@"A button can be added, too, so the user can be prompted to do something" ofType:MDCustomNotificationTypeError withButtonWithTitle:@"Forgot password?" buttonActionBlock:^{
+    MDNotificationMessage *message = [MDNotificationMessage new];
+    message.notificationType = MDCustomNotificationTypeError;
+    message.message = @"A button can be added, too, so the user can be prompted to do something";
+    message.buttonTitle = @"Forgot password?";
+    message.iconImage = [UIImage imageNamed:@"error"];
+    message.buttonActionBlock = ^{
         [[[UIAlertView alloc] initWithTitle:@"Button Pressed" message:@"Notification's button has been pressed. The block is executed." delegate:nil cancelButtonTitle:@"Super Cool" otherButtonTitles:nil, nil] show];
-    }];
+    };
+    
+    [MDCustomNotificationsManager displayNotificationWithMDNotificationMessage:message];
 }
 
 
@@ -46,7 +53,7 @@
 
 - (IBAction)displayCustom:(id)sender {
     
-    MDNotificationMessage *message = [[MDNotificationMessage alloc] init];
+    MDNotificationMessage *message = [MDNotificationMessage new];
     message.message = @"You can customize the notification to fit your needs: Colour, Icon, Displaying Time, Button Image, etc.";
     message.displayTime = 5;
     message.iconImage = [UIImage imageNamed:@"custom"];

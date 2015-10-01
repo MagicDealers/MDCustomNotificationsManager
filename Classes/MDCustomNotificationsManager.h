@@ -43,8 +43,6 @@ typedef void(^ActionCompletionBlock)(void);
 
 + (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType;
 + (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withActionCompletionBlock:(ActionCompletionBlock)actionCompletionBlock;
-+ (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withButtonWithTitle:(NSString *)buttonTitle buttonActionBlock:(ButtonActionBlock)buttonActionBlock;
-+ (void)displayNotificationWithMessage:(NSString *)message ofType:(MDCustomNotificationType)notificationType withButtonWithTitle:(NSString *)buttonTitle buttonActionBlock:(ButtonActionBlock)buttonActionBlock actionCompletionBlock:(ActionCompletionBlock)actionCompletionBlock;
 
 + (void)displayNotificationWithMDNotificationMessage:(MDNotificationMessage *)notificationMessage;
 
