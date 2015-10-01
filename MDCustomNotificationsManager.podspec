@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MDCustomNotificationsManager"
-  s.version          = "0.9.0"
+  s.version          = "0.9.5"
   s.summary          = "Display messages in a notification-like way"
   s.homepage         = "https://github.com/MagicDealers/MDCustomNotificationsManager"
   s.screenshots      = "http://s14.postimg.org/ydle62d0f/MDCNM.gif"
