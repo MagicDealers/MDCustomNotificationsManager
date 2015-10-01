@@ -23,6 +23,7 @@
 
 
 - (IBAction)displaySuccess:(id)sender {
+    
     [MDCustomNotificationsManager displayNotificationWithMessage:@"You can add Completion Blocks" ofType:MDCustomNotificationTypeSuccess withActionCompletionBlock:^{
         [[[UIAlertView alloc] initWithTitle:@"Notification disappeared" message:@"The notification has disappeared and, thus, the completion block has been executed" delegate:nil cancelButtonTitle:@"Cool" otherButtonTitles:nil, nil] show];
     }];
@@ -30,6 +31,7 @@
 
 
 - (IBAction)displayError:(id)sender {
+    
     [MDCustomNotificationsManager displayNotificationWithMessage:@"A button can be added, too, so the user can be prompted to do something" ofType:MDCustomNotificationTypeError withButtonWithTitle:@"Forgot password?" buttonActionBlock:^{
         [[[UIAlertView alloc] initWithTitle:@"Button Pressed" message:@"Notification's button has been pressed. The block is executed." delegate:nil cancelButtonTitle:@"Super Cool" otherButtonTitles:nil, nil] show];
     }];
@@ -37,6 +39,7 @@
 
 
 - (IBAction)displayInfo:(id)sender {
+    
     [MDCustomNotificationsManager displayNotificationWithMessage:@"This notification is just a notification" ofType:MDCustomNotificationTypeInfo];
 }
 
@@ -44,28 +47,16 @@
 - (IBAction)displayCustom:(id)sender {
     
     MDNotificationMessage *message = [[MDNotificationMessage alloc] init];
-    message.message = @"You can customize the notification to fit your needs: Colour, Icon, Displaying Time, etc.";
-    message.displayingSeconds = 5;
+    message.message = @"You can customize the notification to fit your needs: Colour, Icon, Displaying Time, Button Image, etc.";
+    message.displayTime = 5;
     message.iconImage = [UIImage imageNamed:@"custom"];
-    message.backgroundColour = [UIColor colorWithRed:0.45 green:0.22 blue:0.98 alpha:1];
+    message.buttonImage = [UIImage imageNamed:@"close-cross"];
+    message.notificationViewBackgroundColour = [UIColor colorWithRed:0.45 green:0.22 blue:0.98 alpha:1];
     message.actionCompletionBlock = ^{
         [[[UIAlertView alloc] initWithTitle:@"Notification disappeared" message:@"The notification has disappeared and, thus, the completion block has been executed" delegate:nil cancelButtonTitle:@"Cool" otherButtonTitles:nil, nil] show];
     };
     
     [MDCustomNotificationsManager displayNotificationWithMDNotificationMessage:message];
-}
-
-
-#pragma mark UIViewController's LifeCycle.
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-}
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
 }
 
 
